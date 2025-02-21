@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你好</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ffe4e1;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff0f5;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ff69b4;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 0 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background-color: #ffb6c1;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff69b4;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 24px;
+            color: #ff69b4;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>可以成为我的恋人吗</h1>
+        <!-- 交换按钮顺序 -->
+        <button id="yesButton">可以</button>
+        <button id="noButton">不可以</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const resultDiv = document.getElementById('result');
+
+        noButton.addEventListener('click', function () {
+            const currentSize = parseInt(window.getComputedStyle(yesButton).fontSize, 10);
+            yesButton.style.fontSize = (currentSize + 2) + 'px';
+        });
+
+        yesButton.addEventListener('click', function () {
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = "太开心啦，以后就让我好好陪着你吧！";
+            noButton.disabled = true;
+            yesButton.disabled = true;
+        });
+    </script>
+</body>
+
+</html>
